@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="vms_title">Visitor Management System - SP Office, Sangli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top-row">
+            <div class="logo-container">
+                <img src="maharashtra_police_logo.jpg" alt="Maharashtra Police Logo" class="logo">
+                <div>
+                    <h1 data-translate="sp_office_title">Office of the Superintendent of Police, Sangli</h1>
+                    <h2 data-translate="vms_subtitle">Digital Visitor Management System</h2>
+                </div>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="mr">मराठी</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="role-selection" class="card-container">
+            <h3 data-translate="welcome_message">Welcome! Please select an option:</h3>
+            <div class="role-cards">
+                <div class="card" id="admin-card">
+                    <h4><i class="fa-solid fa-user-shield"></i> <span data-translate="admin_portal">Admin Portal</span></h4>
+                    <p data-translate="admin_portal_desc">Access the management dashboard.</p>
+                </div>
+                <div class="card" id="visitor-card">
+                    <h4><i class="fa-solid fa-user-plus"></i> <span data-translate="new_visitor">New Visitor</span></h4>
+                    <p data-translate="new_visitor_desc">Register a new application or visit.</p>
+                </div>
+                <div class="card" id="enquiry-card">
+                    <h4><i class="fa-solid fa-magnifying-glass"></i> <span data-translate="track_application">Track Application</span></h4>
+                    <p data-translate="track_application_desc">Check the status of your submission.</p>
+                </div>
+            </div>
+            <button class="btn btn-help" id="show-help-visitor"><i class="fa-solid fa-circle-question"></i> <span data-translate="how_to_use">How to Use This Page</span></button>
+        </section>
+        <section id="form-display-area" class="form-container hidden"></section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4 data-translate="about_project">About This Project</h4>
+                <p data-translate="project_desc">A Digital Visitor Management System prototype designed to enhance efficiency and security.</p>
+                <p style="margin-top: 15px;" data-translate="made_by">
+                    Made with ❤️ by <strong>Team VISTAL</strong><br>
+                    <em>Students of Rajarambapu Institute of Technology</em>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4 data-translate="quick_links">Quick Links</h4>
+                <ul>
+                    <li><a href="#" data-translate="home">Home</a></li>
+                    <li><a href="#" data-translate="privacy_policy">Privacy Policy</a></li>
+                    <li><a href="#" data-translate="terms_of_service">Terms of Service</a></li>
+                    <li><a href="https://www.mahapolice.gov.in/" target="_blank" data-translate="official_website">Official MahaPolice Website</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 data-translate="help_support">Help & Support</h4>
+                <p><i class="fa-solid fa-location-dot"></i> RIT, Islampur, Sangli, Maharashtra - 415403</p>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:2410018@ritindia.edu">2410018@ritindia.edu</a></p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+918010362029">+91 8010362029</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footer_disclaimer">&copy; 2025 Team VISTAL (RIT). This is a student project for demonstration purposes only. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="generic-modal" class="modal hidden">
+        <button id="modal-close-btn" class="modal-close">&times;</button>
+        <div id="modal-content"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

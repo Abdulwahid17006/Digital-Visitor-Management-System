@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="admin_dashboard_title">Admin Dashboard - VMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-building-shield"></i> <span data-translate="admin_panel">Admin Panel</span>
+                </h3>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-filter="all"><a href="#"><i class="fa-solid fa-users"></i> <span
+                            data-translate="all_visitors">All Visitor Details</span></a></li>
+                <li class="nav-item" data-filter="dsb"><a href="#"><i class="fa-solid fa-user-secret"></i> <span
+                            data-translate="dept_dsb">District Special Branch</span></a></li>
+                <li class="nav-item" data-filter="eow"><a href="#"><i class="fa-solid fa-scale-balanced"></i> <span
+                            data-translate="dept_eow">Economic Offences Wing</span></a></li>
+                <li class="nav-item" data-filter="accounts"><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span data-translate="dept_accounts">Accounts Branch</span></a></li>
+                <li class="nav-item" data-filter="establishment"><a href="#"><i class="fa-solid fa-sitemap"></i> <span
+                            data-translate="dept_establishment">Establishment Branch</span></a></li>
+                <li class="nav-item" data-filter="wireless"><a href="#"><i class="fa-solid fa-wifi"></i> <span
+                            data-translate="dept_wireless">State Police Wireless</span></a></li>
+                <li class="nav-item" data-filter="cyber"><a href="#"><i class="fa-solid fa-laptop-code"></i> <span
+                            data-translate="dept_cyber">Cyber Police Station</span></a></li>
+                <li class="nav-item" data-filter="women"><a href="#"><i class="fa-solid fa-person-dress"></i> <span
+                            data-translate="dept_women">Women Safety Branch</span></a></li>
+                <li class="nav-item" data-filter="lcb"><a href="#"><i class="fa-solid fa-building-flag"></i> <span
+                            data-translate="dept_lcb">Local Crime Branch</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="main-panel">
+            <header class="dashboard-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="search" id="search-input" data-translate-placeholder="search_placeholder"
+                        placeholder="Search by name or ID...">
+                </div>
+                <div class="header-options">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">English</button>
+                        <button class="lang-btn" data-lang="mr">मराठी</button>
+                    </div>
+                    <button class="btn btn-help" id="show-help-admin"><i class="fa-solid fa-circle-question"></i> <span
+                            data-translate="help">Help</span></button>
+                    <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> <span
+                            data-translate="logout">Logout</span></a>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <section class="dashboard-section">
+                    <h2 data-translate="traffic_patterns">Visitor Traffic Patterns (Last 7 Days)</h2>
+                    <div class="chart-container">
+                        <canvas id="visitorChart"></canvas>
+                    </div>
+                </section>
+
+                <section class="dashboard-section">
+                    <h2>Visitor Peak Times</h2>
+                    <div>
+                        <label for="peak-time-filter">Filter by:</label>
+                        <select id="peak-time-filter">
+                            <option value="day">Day</option>
+                            <option value="week">Week</option>
+                            <option value="month" selected>Month</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="peakTimeChart"></canvas>
+                    </div>
+                </section>
+
+
+                <section class="dashboard-section">
+                    <h2 id="visitor-table-title"></h2>
+                    <div class="visitor-table-container">
+                        <table class="visitor-table">
+                            <thead>
+                                <tr>
+                                    <th data-translate="col_id">Unique ID</th>
+                                    <th data-translate="col_name">Name</th>
+                                    <th data-translate="col_dept">Department</th>
+                                    <th data-translate="col_date">Submission Date</th>
+                                    <th data-translate="col_time">Submission Time</th> <!-- Add this -->
+                                    <th data-translate="col_form">Application Form</th> <!-- Add this -->
+                                    <th data-translate="col_status">Status</th>
+                                    <th data-translate="col_actions">Actions</th>
+                                </tr>
+
+                            </thead>
+                            <tbody id="visitor-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="generic-modal" class="modal hidden">
+        <button id="modal-close-btn" class="modal-close">&times;</button>
+        <div id="modal-content"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
